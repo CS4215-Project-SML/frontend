@@ -1,8 +1,8 @@
 import { Button, Classes, Dialog, Intent, Menu, MenuItem } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import { ItemListRenderer, ItemRenderer, Select } from '@blueprintjs/select';
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import * as React from 'react';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import {
   defaultLanguages,

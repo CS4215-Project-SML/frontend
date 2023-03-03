@@ -1,4 +1,4 @@
-import { SourceError, Value } from 'calc-slang/dist/types';
+import { SourceError, Value } from 'sml-slang/dist/types';
 import { action } from 'typesafe-actions';
 
 import { WorkspaceLocation } from '../../workspace/WorkspaceTypes';

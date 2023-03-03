@@ -1,10 +1,10 @@
 import { Classes, Pre } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 import {
   beginDebuggerPause,
   beginInterruptExecution,

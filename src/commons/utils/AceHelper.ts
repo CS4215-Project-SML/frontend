@@ -1,5 +1,5 @@
-import { ModeSelector } from 'calc-slang/dist/editors/ace/modes/source';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { ModeSelector } from 'sml-slang/dist/editors/ace/modes/source';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { HighlightRulesSelector_native } from '../../features/fullJS/fullJSHighlight';
 import { Documentation } from '../documentation/Documentation';

@@ -10,12 +10,12 @@ import {
   SpinnerSize
 } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter, Variant } from 'calc-slang/dist/types';
-import { stringify } from 'calc-slang/dist/utils/stringify';
 import classNames from 'classnames';
 import { isEqual } from 'lodash';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
+import { Chapter, Variant } from 'sml-slang/dist/types';
+import { stringify } from 'sml-slang/dist/utils/stringify';
 
 import { initSession, log } from '../../features/eventLogging';
 import {

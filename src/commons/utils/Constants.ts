@@ -1,5 +1,5 @@
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import moment, { Moment } from 'moment';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 function isTrue(value?: string, defaultTo?: boolean): boolean {
   return typeof value === 'undefined' && typeof defaultTo !== 'undefined'

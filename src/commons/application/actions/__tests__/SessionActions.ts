@@ -1,4 +1,4 @@
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { Grading, GradingOverview } from '../../../../features/grading/GradingTypes';
 import { Assessment, AssessmentOverview } from '../../../assessment/AssessmentTypes';

@@ -1,5 +1,5 @@
-import { Variant } from 'calc-slang/dist/types';
 import { compressToUTF16 } from 'lz-string';
+import { Variant } from 'sml-slang/dist/types';
 
 import { defaultState, OverallState } from '../../commons/application/ApplicationTypes';
 import { ExternalLibraryName } from '../../commons/application/types/ExternalTypes';

@@ -1,5 +1,5 @@
-import { stringify } from 'calc-slang/dist/utils/stringify';
 import { Reducer } from 'redux';
+import { stringify } from 'sml-slang/dist/utils/stringify';
 
 import { SourcecastReducer } from '../../features/sourceRecorder/sourcecast/SourcecastReducer';
 import { SET_IS_EDITOR_READONLY } from '../../features/sourceRecorder/sourcecast/SourcecastTypes';
@@ -434,7 +434,7 @@ export const WorkspaceReducer: Reducer<WorkspaceManagerState> = (
       /**
        * Set the isRunning property of the
        * context to false, to ensure a re-render.
-       * Also in case the async calc-slang interrupt()
+       * Also in case the async sml-slang interrupt()
        * function does not finish interrupting before
        * this action is called.
        */
@@ -496,7 +496,7 @@ export const WorkspaceReducer: Reducer<WorkspaceManagerState> = (
 
     /**
      * Resets the workspace to default settings,
-     * including the calc-slang Context. Apply
+     * including the sml-slang Context. Apply
      * any specified settings (workspaceOptions)
      */
     case RESET_WORKSPACE:

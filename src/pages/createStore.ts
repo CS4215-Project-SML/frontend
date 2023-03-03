@@ -1,7 +1,7 @@
-import { Chapter } from 'calc-slang/dist/types';
 import { throttle } from 'lodash';
 import { applyMiddleware, compose, createStore as _createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { Chapter } from 'sml-slang/dist/types';
 
 import { defaultState } from '../commons/application/ApplicationTypes';
 import createRootReducer from '../commons/application/reducers/RootReducer';

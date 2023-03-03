@@ -1,5 +1,5 @@
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import { cloneDeep } from 'lodash';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import {
   CodeOutput,

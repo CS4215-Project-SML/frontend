@@ -1,8 +1,8 @@
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import _ from 'lodash';
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { OverallState } from '../../commons/application/ApplicationTypes';
 import {

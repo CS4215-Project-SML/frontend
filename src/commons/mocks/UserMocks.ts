@@ -1,4 +1,4 @@
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { GameState, Role } from '../application/ApplicationTypes';
 import {

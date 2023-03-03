@@ -12,8 +12,8 @@ import {
   TextArea
 } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import * as React from 'react';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { CourseHelpTextEditorTab } from '../../pages/academy/adminPanel/subcomponents/CourseConfigPanel';
 import { sourceLanguages } from '../application/ApplicationTypes';

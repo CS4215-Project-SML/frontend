@@ -3,8 +3,8 @@ import {
   GetResponseDataTypeFromEndpointMethod,
   GetResponseTypeFromEndpointMethod
 } from '@octokit/types';
-import { Chapter } from 'calc-slang/dist/types';
 import { isEqual } from 'lodash';
+import { Chapter } from 'sml-slang/dist/types';
 
 import { IMCQQuestion, Testcase } from '../assessment/AssessmentTypes';
 import { showWarningMessage } from '../utils/NotificationsHelper';

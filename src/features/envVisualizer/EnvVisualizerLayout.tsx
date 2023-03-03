@@ -1,7 +1,7 @@
 import { Button, ButtonGroup, Checkbox } from '@blueprintjs/core';
-import { Frame } from 'calc-slang/dist/types';
 import React, { RefObject } from 'react';
 import { Layer, Rect, Stage } from 'react-konva';
+import { Frame } from 'sml-slang/dist/types';
 
 import { Level as CompactLevel } from './compactComponents/Level';
 import { ArrayValue as CompactArrayValue } from './compactComponents/values/ArrayValue';

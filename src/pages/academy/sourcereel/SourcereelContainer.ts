@@ -1,6 +1,6 @@
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { OverallState } from '../../../commons/application/ApplicationTypes';
 import { ExternalLibraryName } from '../../../commons/application/types/ExternalTypes';

@@ -1,8 +1,8 @@
 import { Classes, NonIdealState, Spinner, SpinnerSize } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import classNames from 'classnames';
 import * as React from 'react';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 import SideContentToneMatrix from 'src/commons/sideContent/SideContentToneMatrix';
 
 import {

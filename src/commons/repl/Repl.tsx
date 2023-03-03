@@ -1,10 +1,10 @@
 import { Card, Classes, Pre } from '@blueprintjs/core';
 import { Ace } from 'ace-builds';
-import { parseError } from 'calc-slang';
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import classNames from 'classnames';
 import * as React from 'react';
 import { HotKeys } from 'react-hotkeys';
+import { parseError } from 'sml-slang';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { InterpreterOutput } from '../application/ApplicationTypes';
 import { ExternalLibraryName } from '../application/types/ExternalTypes';

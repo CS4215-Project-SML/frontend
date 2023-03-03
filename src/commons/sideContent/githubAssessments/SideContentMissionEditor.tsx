@@ -1,6 +1,6 @@
 import { Label } from '@blueprintjs/core';
-import { Chapter } from 'calc-slang/dist/types';
 import React from 'react';
+import { Chapter } from 'sml-slang/dist/types';
 
 import { SALanguage } from '../../application/ApplicationTypes';
 import { ControlBarChapterSelect } from '../../controlBar/ControlBarChapterSelect';

@@ -1,7 +1,7 @@
 import { Intent } from '@blueprintjs/core';
-import { Chapter, Variant } from 'calc-slang/dist/types';
 import { SagaIterator } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import {
   PERSISTENCE_INITIALISE,

@@ -1,16 +1,16 @@
+import { random } from 'lodash';
+import Phaser from 'phaser';
+import { SagaIterator } from 'redux-saga';
+import { call, put, race, select, StrictEffect, take } from 'redux-saga/effects';
 import {
   Context,
   findDeclaration,
   interrupt,
   runInContext
-} from 'calc-slang';
-import { InterruptedError } from 'calc-slang/dist/errors/errors';
-import { parse } from 'calc-slang/dist/parser/parser';
-import { Chapter, Variant } from 'calc-slang/dist/types';
-import { random } from 'lodash';
-import Phaser from 'phaser';
-import { SagaIterator } from 'redux-saga';
-import { call, put, race, select, StrictEffect, take } from 'redux-saga/effects';
+} from 'sml-slang';
+import { InterruptedError } from 'sml-slang/dist/errors/errors';
+import { parse } from 'sml-slang/dist/parser/parser';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 import EnvVisualizer from 'src/features/envVisualizer/EnvVisualizer';
 
 import { EventType } from '../../features/achievement/AchievementTypes';

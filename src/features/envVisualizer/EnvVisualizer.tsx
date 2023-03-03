@@ -1,5 +1,5 @@
-import { Context } from 'calc-slang';
 import React from 'react';
+import { Context } from 'sml-slang';
 
 import { Layout } from './EnvVisualizerLayout';
 import { EnvTree } from './EnvVisualizerTypes';

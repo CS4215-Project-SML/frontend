@@ -1,10 +1,10 @@
+import { KonvaEventObject } from 'konva/lib/Node';
+import React from 'react';
 import {
   EnvTree as EnvironmentTree,
   EnvTreeNode as EnvironmentTreeNode
-} from 'calc-slang/dist/createContext';
-import { Environment } from 'calc-slang/dist/types';
-import { KonvaEventObject } from 'konva/lib/Node';
-import React from 'react';
+} from 'sml-slang/dist/createContext';
+import { Environment } from 'sml-slang/dist/types';
 
 import { ArrayUnit as CompactArrayUnit } from './compactComponents/ArrayUnit';
 import { Binding as CompactBinding } from './compactComponents/Binding';
