@@ -109,10 +109,7 @@ export interface SALanguage extends Language {
   displayName: string;
 }
 
-const variantDisplay: Map<Variant, string> = new Map([
-  [Variant.DEFAULT, 'calc']
-]);
-
+const variantDisplay: Map<Variant, string> = new Map([[Variant.DEFAULT, 'sml']]);
 
 export const styliseSublanguage = (chapter: Chapter, variant: Variant = Variant.DEFAULT) => {
   return `Source \xa7${chapter}${
@@ -120,9 +117,7 @@ export const styliseSublanguage = (chapter: Chapter, variant: Variant = Variant.
   }`;
 };
 
-export const sublanguages: Language[] = [
-  { chapter: Chapter.CALC, variant: Variant.DEFAULT }
-];
+export const sublanguages: Language[] = [{ chapter: Chapter.SML, variant: Variant.DEFAULT }];
 
 export const sourceLanguages: SALanguage[] = sublanguages.map(sublang => {
   return {
@@ -139,8 +134,7 @@ export const variantLanguages = sourceLanguages.filter(
   sublang => sublang.variant !== Variant.DEFAULT
 );
 
-export const isSourceLanguage = (chapter: Chapter) =>
-  [Chapter.CALC].includes(chapter);
+export const isSourceLanguage = (chapter: Chapter) => [Chapter.SML].includes(chapter);
 
 const currentEnvironment = (): ApplicationEnvironment => {
   switch (process.env.NODE_ENV) {
@@ -189,11 +183,7 @@ export const defaultEditorValue = '1+1';
  */
 export const createDefaultWorkspace = (workspaceLocation: WorkspaceLocation): WorkspaceState => ({
   autogradingResults: [],
-  context: createContext<WorkspaceLocation>(
-    [],
-    workspaceLocation,
-    Constants.defaultSourceVariant
-  ),
+  context: createContext<WorkspaceLocation>([], workspaceLocation, Constants.defaultSourceVariant),
   activeEditorTabIndex: 0,
   editorTabs: [
     {
@@ -255,7 +245,7 @@ export const defaultWorkspaceManager: WorkspaceManagerState = {
     playbackData: {
       init: {
         editorValue: '',
-        chapter: Chapter.CALC,
+        chapter: Chapter.SML,
         externalLibrary: ExternalLibraryName.NONE
       },
       inputs: []
@@ -271,7 +261,7 @@ export const defaultWorkspaceManager: WorkspaceManagerState = {
     playbackData: {
       init: {
         editorValue: '',
-        chapter: Chapter.CALC,
+        chapter: Chapter.SML,
         externalLibrary: ExternalLibraryName.NONE
       },
       inputs: []

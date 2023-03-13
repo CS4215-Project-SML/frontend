@@ -257,7 +257,7 @@ const download = (filename: string, text: string) => {
 const exportLibrary = (library: Library) => {
   const deployment = {
     $: {
-      interpreter: Chapter.CALC.toString()
+      interpreter: Chapter.SML.toString()
     },
     EXTERNAL: {
       $: {
@@ -322,7 +322,6 @@ export const assessmentToXml = (
       CHOICE: [] as any[]
     };
 
-    
     /* tslint:disable:no-string-literal */
     problem.$['DEPLOYMENT'] = exportLibrary(question.library);
 
