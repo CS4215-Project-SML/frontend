@@ -88,7 +88,11 @@ export const Output: React.FC<OutputProps> = (props: OutputProps) => {
       } else if (props.output.consoleLogs.length === 0) {
         return (
           <Card>
-            <Pre className="result-output">{props.output.value}</Pre>
+            <Pre className="result-output">
+              {typeof props.output.value === 'string'
+                ? props.output.value.slice(1, props.output.value.length - 1)
+                : props.output.value}
+            </Pre>
           </Card>
         );
       } else {
