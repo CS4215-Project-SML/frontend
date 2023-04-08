@@ -2,12 +2,7 @@ import { random } from 'lodash';
 import Phaser from 'phaser';
 import { SagaIterator } from 'redux-saga';
 import { call, put, race, select, StrictEffect, take } from 'redux-saga/effects';
-import {
-  Context,
-  findDeclaration,
-  interrupt,
-  runInContext
-} from 'sml-slang';
+import { Context, findDeclaration, interrupt, runInContext } from 'sml-slang';
 import { InterruptedError } from 'sml-slang/dist/errors/errors';
 import { parse } from 'sml-slang/dist/parser/parser';
 import { Chapter, Variant } from 'sml-slang/dist/types';
@@ -77,7 +72,6 @@ export default function* WorkspaceSaga(): SagaIterator {
     const workspaceLocation = action.payload.workspaceLocation;
     yield* evalEditor(workspaceLocation);
   });
-
 
   yield takeEvery(
     TOGGLE_EDITOR_AUTORUN,
@@ -167,8 +161,7 @@ export default function* WorkspaceSaga(): SagaIterator {
     ]);
 
     const chapterChanged: boolean = newChapter !== oldChapter || newVariant !== oldVariant;
-    const toChangeChapter: boolean =
-      chapterChanged;
+    const toChangeChapter: boolean = chapterChanged;
 
     if (toChangeChapter) {
       const library: Library = {
@@ -205,13 +198,11 @@ export default function* WorkspaceSaga(): SagaIterator {
     PLAYGROUND_EXTERNAL_SELECT,
     function* (action: ReturnType<typeof actions.externalLibrarySelect>) {
       const { workspaceLocation, externalLibraryName: newExternalLibraryName } = action.payload;
-      const [globals, oldExternalLibraryName]: [
-        Array<[string, any]>,
-        ExternalLibraryName
-      ] = yield select((state: OverallState) => [
-        state.workspaces[workspaceLocation].globals,
-        state.workspaces[workspaceLocation].externalLibrary
-      ]);
+      const [globals, oldExternalLibraryName]: [Array<[string, any]>, ExternalLibraryName] =
+        yield select((state: OverallState) => [
+          state.workspaces[workspaceLocation].globals,
+          state.workspaces[workspaceLocation].externalLibrary
+        ]);
       const symbols = externalLibraries.get(newExternalLibraryName)!;
       const library: Library = {
         external: {
@@ -546,15 +537,14 @@ export function* evalCode(
   );
 
   const { result, interrupted, paused } = yield race({
-    result:
-      call(runInContext, code, context, {
-            scheduler: 'preemptive',
-            executionMethod: 'interpreter',
-            originalMaxExecTime: execTime,
-            stepLimit: stepLimit,
-            variant: Variant.DEFAULT,
-            useSubst: false
-          }),
+    result: call(runInContext, code, context, {
+      scheduler: 'preemptive',
+      executionMethod: 'interpreter',
+      originalMaxExecTime: execTime,
+      stepLimit: stepLimit,
+      variant: Variant.DEFAULT,
+      useSubst: false
+    }),
 
     /**
      * A BEGIN_INTERRUPT_EXECUTION signals the beginning of an interruption,
@@ -591,21 +581,21 @@ export function* evalCode(
     result.status !== 'suspended-non-det'
   ) {
     yield* dumpDisplayBuffer(workspaceLocation);
-    yield put(actions.evalInterpreterError(context.errors, workspaceLocation));
+    yield put(actions.evalInterpreterError(context.smlErrors, workspaceLocation));
 
     // we need to parse again, but preserve the errors in context
-    const oldErrors = context.errors;
-    context.errors = [];
-    context.errors = oldErrors;
+    const oldErrors = context.smlErrors;
+    context.smlErrors = [];
+    context.smlErrors = oldErrors;
     // for achievement event tracking
-    const events = context.errors.length > 0 ? [EventType.ERROR] : [];
+    const events = context.smlErrors.length > 0 ? [EventType.ERROR] : [];
     yield put(actions.addEvent(events));
     return;
   } else if (result.status === 'suspended') {
     yield put(actions.endDebuggerPause(workspaceLocation));
     yield put(actions.evalInterpreterSuccess('Breakpoint hit!', workspaceLocation));
     return;
-  } 
+  }
   yield* dumpDisplayBuffer(workspaceLocation);
   // Do not write interpreter output to REPL, if executing chunks (e.g. prepend/postpend blocks)
   if (actionType !== EVAL_SILENT) {
@@ -658,7 +648,7 @@ export function* evalTestCode(
    *  since debugger is presently disabled in assessment and grading environments
    */
   if (result.status === 'error') {
-    yield put(actions.evalInterpreterError(context.errors, workspaceLocation));
+    yield put(actions.evalInterpreterError(context.smlErrors!, workspaceLocation));
     yield put(actions.evalTestcaseFailure(context.errors, workspaceLocation, index));
   } else if (result.status === 'finished') {
     // Execution of the testcase is successful, i.e. no errors were raised

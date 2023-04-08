@@ -1,4 +1,4 @@
-import { Chapter, Language, SourceError, Variant } from 'sml-slang/dist/types';
+import { Chapter, Language, Variant } from 'sml-slang/dist/types';
 
 import { AcademyState } from '../../features/academy/AcademyTypes';
 import { AchievementState } from '../../features/achievement/AchievementTypes';
@@ -17,6 +17,7 @@ import {
 } from '../workspace/WorkspaceTypes';
 import { ExternalLibraryName } from './types/ExternalTypes';
 import { SessionState } from './types/SessionTypes';
+import { SmlError } from 'sml-slang/dist/sml/error';
 
 export type OverallState = {
   readonly academy: AcademyState;
@@ -82,7 +83,7 @@ export type ResultOutput = {
  */
 export type ErrorOutput = {
   type: 'errors';
-  errors: SourceError[];
+  smlErrors: SmlError[];
   consoleLogs: string[];
 };
 

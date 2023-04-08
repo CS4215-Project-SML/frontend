@@ -1,6 +1,11 @@
 {
-  "extends": ["react-app", "plugin:@typescript-eslint/recommended"],
-  "plugins": ["simple-import-sort"],
+  "extends": [
+    "react-app",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "simple-import-sort"
+  ],
   "rules": {
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/interface-name-prefix": "off",
@@ -11,7 +16,6 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
-    "@typescript-eslint/ban-types": "off",
-    "simple-import-sort/imports": "error"
+    "@typescript-eslint/ban-types": "off"
   }
 }

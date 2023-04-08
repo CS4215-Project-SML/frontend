@@ -3,7 +3,7 @@ import { Ace } from 'ace-builds';
 import classNames from 'classnames';
 import * as React from 'react';
 import { HotKeys } from 'react-hotkeys';
-import { parseError } from 'sml-slang';
+import { parseSmlErrors } from 'sml-slang/dist/sml/error';
 import { Chapter, Variant } from 'sml-slang/dist/types';
 
 import { InterpreterOutput } from '../application/ApplicationTypes';
@@ -40,11 +40,7 @@ type OwnProps = {
 
 const Repl: React.FC<ReplProps> = (props: ReplProps) => {
   const cards = props.output.map((slice, index) => (
-    <Output
-      output={slice}
-      key={index}
-      usingSubst={props.usingSubst ?? false}
-    />
+    <Output output={slice} key={index} usingSubst={props.usingSubst ?? false} />
   ));
   return (
     <div className="Repl" style={{ display: props.hidden ? 'none' : undefined }}>
@@ -107,7 +103,7 @@ export const Output: React.FC<OutputProps> = (props: OutputProps) => {
       if (props.output.consoleLogs.length === 0) {
         return (
           <Card>
-            <Pre className="error-output">{parseError(props.output.errors)}</Pre>
+            <Pre className="error-output">{parseSmlErrors(props.output.smlErrors)}</Pre>
           </Card>
         );
       } else {
@@ -115,7 +111,7 @@ export const Output: React.FC<OutputProps> = (props: OutputProps) => {
           <Card>
             <Pre className="log-output">{props.output.consoleLogs.join('\n')}</Pre>
             <br />
-            <Pre className="error-output">{parseError(props.output.errors)}</Pre>
+            <Pre className="error-output">{parseSmlErrors(props.output.smlErrors)}</Pre>
           </Card>
         );
       }

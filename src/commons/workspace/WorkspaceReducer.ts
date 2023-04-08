@@ -406,13 +406,13 @@ export const WorkspaceReducer: Reducer<WorkspaceManagerState> = (
       if (lastOutput !== undefined && lastOutput.type === 'running') {
         newOutput = state[workspaceLocation].output.slice(0, -1).concat({
           type: action.payload.type,
-          errors: action.payload.errors,
+          smlErrors: action.payload.errors,
           consoleLogs: lastOutput.consoleLogs
         } as ErrorOutput);
       } else {
         newOutput = state[workspaceLocation].output.concat({
           type: action.payload.type,
-          errors: action.payload.errors,
+          smlErrors: action.payload.errors,
           consoleLogs: []
         } as ErrorOutput);
       }

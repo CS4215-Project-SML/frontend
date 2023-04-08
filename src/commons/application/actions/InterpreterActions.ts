@@ -1,4 +1,4 @@
-import { SourceError, Value } from 'sml-slang/dist/types';
+import { Value } from 'sml-slang/dist/types';
 import { action } from 'typesafe-actions';
 
 import { WorkspaceLocation } from '../../workspace/WorkspaceTypes';
@@ -15,6 +15,7 @@ import {
   EVAL_TESTCASE_SUCCESS,
   HANDLE_CONSOLE_LOG
 } from '../types/InterpreterTypes';
+import { SmlError } from 'sml-slang/dist/sml/error';
 
 export const handleConsoleLog = (workspaceLocation: WorkspaceLocation, ...logString: string[]) =>
   action(HANDLE_CONSOLE_LOG, { logString, workspaceLocation });
@@ -34,7 +35,7 @@ export const evalTestcaseFailure = (
   index: number
 ) => action(EVAL_TESTCASE_FAILURE, { type: 'errors', value, workspaceLocation, index });
 
-export const evalInterpreterError = (errors: SourceError[], workspaceLocation: WorkspaceLocation) =>
+export const evalInterpreterError = (errors: SmlError[], workspaceLocation: WorkspaceLocation) =>
   action(EVAL_INTERPRETER_ERROR, { type: 'errors', errors, workspaceLocation });
 
 export const beginInterruptExecution = (workspaceLocation: WorkspaceLocation) =>
